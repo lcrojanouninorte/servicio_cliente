@@ -32,6 +32,7 @@ transition:All 0.5s ease;
 -o-transition:All 0.5s ease;
 
 }
+/*
 #rating div:hover{
 transform: rotate(0deg) scale(0.67) skew(1deg) translate(0px);
 -webkit-transform: rotate(0deg) scale(0.67) skew(1deg) translate(0px);
@@ -39,7 +40,7 @@ transform: rotate(0deg) scale(0.67) skew(1deg) translate(0px);
 -o-transform: rotate(0deg) scale(0.67) skew(1deg) translate(0px);
 -ms-transform: rotate(0deg) scale(0.67) skew(1deg) translate(0px);
 }
-
+*/
 
 #rating div a{
     position: relative;

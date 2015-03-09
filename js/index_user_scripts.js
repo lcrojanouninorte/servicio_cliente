@@ -41,9 +41,11 @@
         $('#modal').hide();
 
         /*clic en calificación*/
-        $(document).on("click", "#rating div", function(evt) {
+        $(document).on("click", "#rating div", function(evt,$ti) {
                   
                 iniciar_loading();
+
+ 
                 var calif = parseNota(evt.currentTarget.id);
                 var datetime = getDateString();
                 var dataString = {
@@ -74,6 +76,7 @@
 
 
             );
+
             $(document.elementFromPoint(2, 2)).click();
         });
 
