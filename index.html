@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <!--
+    * Please see the included README.md file for license terms and conditions.
+    -->
+    <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+        <link rel="stylesheet" type="text/css" href="css/rating.css">
+        <link rel="stylesheet" type="text/css" href="css/buttons.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Martel+Sans' rel='stylesheet' type='text/css'>
+        <meta charset="UTF-8">
+        <title>Blank App Designer Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        
+        <!--
+        * The "meta viewport" tag (below) helps your app size appropriately to a device's screen.
+        * Note that the meta viewport approach is being phased out in favor of the @viewport CSS rule.
+        * For a quick overview of both, see this article:
+        *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+        * To see what happens, try the app on a real device with and without a "meta viewport" tag.
+        -->
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+        <style>
+        /* following three (cascaded) are equivalent to above three meta viewport statements */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+        /* see http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }                           @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }                                    @viewport { user-zoom: fixed ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+        <link rel="stylesheet" href="css/old-android.css">
+        <link rel="stylesheet" href="css/style_file_uploader.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <!-- Most third-party libraries should go here. References (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+        <script src="intelxdk.js"></script>
+        <!-- phantom library, needed for XDK "legacy" container api calls -->
+        <script src="cordova.js"></script>
+        <!-- phantom library, needed for Cordova api calls -->
+        <script src="xhr.js"></script>
+        <!-- phantom library, needed for XDK "legacy" container CORS -->
+        <script src="js/app.js"></script>
+        <script src="js/init-app.js"></script>
+        <script src="js/init-dev.js"></script>
+        <script src="js/date-es-CO.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/jq.appframework.min.js"></script>
+        <script src="app_framework/appframework.ui.js"></script>
+        <script src="js/jquery.form.js"></script>
+          <script src="js/buttons.js"></script>
+        <!--
+        You may substitute jQuery for the App Framework selector library.
+        See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        
+        
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="af.ui.jquery(.min).js"></script> -->
+        <!--  <script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+        <script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"> </script>
+        -->
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
+    </head>
+    <body id="afui" class="rating_style">
+        <header class="container-group wrap-element uib_w_22" data-uib="app_framework/header" data-ver="1" id="af-header-1">
+            <h1>Registrar</h1>
+            <div class="widget-container wrapping-col single-centered"></div>
+            <div class="widget-container content-area horiz-area wrapping-col left with-back"><a class="button backButton" href="mainsub">Atras</a>
+        </div>
+        <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+    </header>
+    <div id="content">
+        <div class="upage panel" id="mainpage" data-header="none" data-footer="none">
+            <div class="upage-outer">
+                <div class="upage-content" id="mainsub">
+                    <div class="grid grid-pad urow uib_row_1 row-height-1" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <div class="widget uib_w_1 d-margins Heading" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Bienvenidos</p>
+                                    </div>
+                                </div>
+                                <div class="widget uib_w_2 d-margins center" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Elija una opción</p>
+                                    </div>
+                                </div>
+                                <ul class="list widget uib_w_3 d-margins" data-uib="app_framework/listview" data-ver="1">
+                                    <li class="widget uib_w_4" data-uib="app_framework/listitem" data-ver="1"><a class="icon user" href="#login_page">Login</a>
+                                </li>
+                                <li class="widget uib_w_5" data-uib="app_framework/listitem" data-ver="1"><a class="icon pencil" href="#register_page">Registrar</a>
+                            </li>
+                            </ul><span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <span class="uib_shim"></span>
+                </div>
+            </div>
+            <!-- /upage-content -->
+        </div>
+        <!-- /upage-outer -->
+    </div>
+    <div class="upage panel" id="register_page" data-header="af-header-1" data-footer="none">
+        <div class="upage-outer">
+            <div id="register_pagesub" class="upage-content ">
+                <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+                    <div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
+                        <div class="widget-container content-area vertical-col">
+                            <div class="widget uib_w_12 d-margins center" data-uib="media/text" data-ver="0">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div>
+                                    <p>Registro de Ususarios</p>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                
+                                <form id="uploadform" enctype="multipart/form-data">
+                                    <div class="col2-3" style="padding-right:30px;">
+                                        <input  placeholder="Nombres" type="text" name="name">
+                                        <input  placeholder="E-Mail" type="text" name="username">
+                                        <input  placeholder="password" type="text" name="password">
+                                    </div>
+                                    <div class="col1-3">
+                                        <img id="uploadPreview"/>
+                                        <input id="fileupload" type="file" name="fileToUpload" />
+                                    </div>
+                                    
+                                    Message :
+                                    <div class="grid" id="onsuccessmsg" style="border:5px solid #CCC;padding:15px;">
+                                    </div>
+                                    <div class="progress">
+                                        <div class="bar" style="width: 100%;"></div>
+                                        <div class="percent">100%</div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" id="register" class="button green">Registrar</button>
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- /upage-outer -->
+        </div>
+    </div>
+    <div class="upage panel" id="login_page" data-header="af-header-0" data-footer="none">
+        <div class="upage-outer">
+            <header class="container-group inner-element uib_w_6" data-uib="app_framework/header" data-ver="1" id="af-header-0">
+                <h1>Login</h1>
+                <div class="widget-container wrapping-col single-centered"></div>
+                <div class="widget-container content-area horiz-area wrapping-col left with-back"><a class="button backButton" href="mainsub">Back</a>
+            </div>
+            <div class="widget-container content-area horiz-area wrapping-col right"></div>
+        </header>
+        <div id="login_pagesub" class="upage-content ">
+            <div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+                        <div class="widget uib_w_7 d-margins center" data-uib="media/text" data-ver="0" id="error">
+                            <div class="widget-container left-receptacle"></div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div>
+                                <p>Ingrese su nombre de usuario y contraseña</p>
+                            </div>
+                        </div>
+                        <div class="table-thing with-label widget uib_w_8" data-uib="app_framework/input" data-ver="1">
+                            <input class="wide-control" placeholder="username" type="text" id="user">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_9" data-uib="app_framework/input" data-ver="1">
+                            <input class="wide-control" placeholder="password" type="password" id="password">
+                            </div><a class="button widget uib_w_10 d-margins green" data-uib="app_framework/button" data-ver="1">Login</a><span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <span class="uib_shim"></span>
+                </div>
+            </div>
+        </div>
+        <!-- /upage-outer -->
+    </div>
+    <!-- /upage -->
+    <div class="upage vertical-col left panel" id="survey" data-header="af-header-3" data-footer="none">
+                    <header class="container-group inner-element uib_w_6" data-uib="app_framework/header" data-ver="1" id="af-header-3">
+                <h1>Departamento de Registro</h1>
+                <div class="widget-container wrapping-col single-centered"></div>
+                <div class="widget-container content-area horiz-area wrapping-col left with-back">
+            </div>
+            <div class="widget-container content-area horiz-area wrapping-col right"></div>
+        </header>
+        <div class="grid grid-pad urow uib_row_4" data-uib="layout/row" data-ver="0">
+            <div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
+                <div class="widget-container content-area vertical-col center">
+                    <div class="widget uib_w_19 Heading" data-uib="media/text" data-ver="0" id="titulo_survey">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div id="titulo_rate">
+                            <p>Calidad de la atención recibida</p>
+                        </div>
+                    </div>
+               
+                    <div id="wrapper_medio" class="grid">
+                        <div class="col1-3">
+                            <div id="persona"  class="shadow">
+                                <h2>Hola, Hoy te atiende:</h2>
+                                <div class="circle-text"> <div class="circle-text2"><img id="foto" ></div></div>
+                                <p id="nombre">Nombre Y Apellido</p>
+                            </div>
+                        </div>
+                        <div class="col2-3 " >
+                            <div class="shadow" id="rate">
+                                <div>
+                                    <p>Por favor califique la calidad de la atención recibida:</p>
+                                </div>
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div id="rating" class="grid">
+                                    <div id="poor" >
+                                        <a class="button2 button2-circle button2-flat-pesimo"><span>Pésimo</span></a>
+                                    </div>
+                                    <div id="bad" >
+                                        <a class="button2 button2-circle button2-flat-malo"><span>Malo</span></a>
+                                    </div>
+                                    <div id="good"  >
+                                        <a class="button2 button2-circle button2-flat-bueno"><span>Bueno</span></a>
+                                    </div>
+                                    <div id="excelent" >
+                                        <a class="button2 button2-circle button2-flat-excelente"><span>Excelente</span></a>
+                                    </div>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div id="foot" class="shadow">
+                        <p>Para Mayor Información contactenos a registro@uninorte.edu.co</p>
+                        <div id="logo_uninorte"></div>    
+                        <button class="green " id="salir" href="mainsub">salir</button>           
+                </div>
+
+                <div id="modal">
+                    <div class="message circleBase type3">
+                        <h2>Gracias por su participación!</h2>
+                        <p>Mejoramos Para Brindarte un servicio de calidad</p>
+                        
+                        <p  class="pfoot">Este mensaje de cerrara en <span></span> segundos</p>
+                        
+                    </div>
+                </div>
+                <div id="loadingDiv"><p>Enviando respuesta...</p></div>
+                <span class="uib_shim"></span>
+            </div>
+        </div>
+        <span class="uib_shim"></span>
+    </div>
+</div>
+<!-- fin sruvey -->
+</div>
+<!-- /uwrap -->
+</body>
+</html>
